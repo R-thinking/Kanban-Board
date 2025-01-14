@@ -1,1 +1,1 @@
-![Uploading usage.jpg…]()
+![Uploading usage.png…]()
