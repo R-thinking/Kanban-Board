@@ -1,19 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { ThemeProvider } from 'styled-components'
+import { darkTheme } from './2.toDoListApp/theme'
+import { CoinApp, TodoListApp, TimeConverterApp, KanbanBoardApp, AnimationApp } from './App'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { RecoilRoot } from 'recoil'
+import { kanbanTheme } from './4.kanbanBoardApp/theme'
+import { darkThemeForAnimation } from './5.animationApp/theme'
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+const queryClient = new QueryClient()
+
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
-    <App />
+    <RecoilRoot>
+      {/* <QueryClientProvider client={queryClient}>
+        <CoinApp />
+      </QueryClientProvider> */}
+      {/* <ThemeProvider theme={darkTheme}>
+        <TodoListApp />
+        <TimeConverterApp />
+      </ThemeProvider> */}
+      <ThemeProvider theme={kanbanTheme}>
+        <KanbanBoardApp />
+      </ThemeProvider>
+      {/*  <ThemeProvider theme={darkThemeForAnimation}>
+        <AnimationApp />
+      </ThemeProvider> */}
+    </RecoilRoot>
   </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+)
