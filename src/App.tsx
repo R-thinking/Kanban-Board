@@ -1,14 +1,5 @@
-import { createGlobalStyle, ThemeProvider } from 'styled-components'
-import Router from './1.coinApp/Router'
-import { ReactQueryDevtools } from 'react-query/devtools'
-import { darkTheme, lightTheme } from './1.coinApp/theme'
-import { useRecoilValue } from 'recoil'
-import { isDarkAtom } from './1.coinApp/recoil/theme/atoms'
-import ToDoList from './2.toDoListApp/components/ToDoList'
-import TimeConverter from './3.timeConverterApp/TimeConverter'
+import { createGlobalStyle } from 'styled-components'
 import KanbanBoard from './4.kanbanBoardApp/KanbanBoard'
-import BasicAnimation from './5.animationApp/BasicAnimation'
-import AdvancedAnimation from './5.animationApp/AdvancedAnimation'
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,300;1,300&display=swap');
@@ -74,37 +65,6 @@ a {
 }
 `
 
-function CoinApp() {
-  const isDark = useRecoilValue(isDarkAtom)
-  return (
-    <>
-      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
-        <GlobalStyle />
-        <Router />
-        <ReactQueryDevtools initialIsOpen={true} />
-      </ThemeProvider>
-    </>
-  )
-}
-
-function TodoListApp() {
-  return (
-    <>
-      <GlobalStyle />
-      <ToDoList />
-    </>
-  )
-}
-
-function TimeConverterApp() {
-  return (
-    <>
-      <GlobalStyle />
-      <TimeConverter />
-    </>
-  )
-}
-
 function KanbanBoardApp() {
   return (
     <>
@@ -114,14 +74,4 @@ function KanbanBoardApp() {
   )
 }
 
-function AnimationApp() {
-  return (
-    <>
-      <GlobalStyle />
-      {/* <BasicAnimation /> */}
-      <AdvancedAnimation />
-    </>
-  )
-}
-
-export { CoinApp, TodoListApp, TimeConverterApp, KanbanBoardApp, AnimationApp }
+export { KanbanBoardApp }

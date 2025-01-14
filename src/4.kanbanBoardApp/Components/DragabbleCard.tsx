@@ -9,6 +9,9 @@ const Card = styled.div<{ isDragging: boolean }>`
   height: 80px;
   background-color: ${(props) => (props.isDragging ? '#909090da' : props.theme.cardColor)};
   box-shadow: ${(props) => (props.isDragging ? '0px 5px 5px rgba(0,0,0,0.5)' : 'none')};
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 interface IDragabbleCardProps {
